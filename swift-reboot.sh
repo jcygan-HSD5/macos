@@ -12,7 +12,7 @@ if [ -z "$days" ]; then
 fi
 
 # Check if uptime is greater than 14 days
-if [ "$days" -gt 14 ]; then
+if [ "$days" -gt 1 ]; then
     /usr/local/bin/dialog \
         --title "Recommended Reboot" \
         --message "Your device has been running for over 14 days without a reboot. Regular reboots help maintain optimal performance and stability. Please save your work and reboot your machine at your earliest convenience." \
