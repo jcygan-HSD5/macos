@@ -19,6 +19,7 @@ export CORESVG_VERBOSE=1
         --height 200 \
         --width 600 \
         --button1text "OK" \
+        --button1action "exit" \
         --button2text "Reboot Now" \
 #else
 #    echo "Uptime is not more than 14 days. No dialog displayed."
