@@ -21,7 +21,7 @@
         --button1text "OK" \
         --button1action "quit" \
         --button2text "Reboot Now" \
-        --button2action "run_command:/usr/bin/sudo /sbin/reboot now"
+        --button2action "run_command:/usr/bin/sudo /sbin/shutdown -r now"
 #else
 #    echo "Uptime is not more than 14 days. No dialog displayed."
 #fi
