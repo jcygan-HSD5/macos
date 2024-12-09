@@ -14,12 +14,14 @@ if [ "$days" -gt 1 ]; then
     echo "Uptime is more than 14 days. Triggering reboot dialog..."
     /usr/local/bin/dialog \
         --title "Recommended Reboot" \
-        --message "Your device has been running for over 14 days without a reboot. Regular reboots help maintain optimal performance and stability. Please save your work and reboot your machine at your earliest convenience." \
+        --message "Your device has been running for over 14 days without a reboot. Regular reboots help maintain optimal performance and stability.\n\nPlease save your work. You may reboot now or at your earliest convenience." \
         --icon caution \
         --height 200 \
-        --width 400 \
+        --width 600 \
         --button1text "OK" \
-        --button1action "quit"
+        --button1action "quit" \
+        --button2text "Reboot Now" \
+        --button2action "run_command:shutdown -r now"
 else
     echo "Uptime is not more than 14 days. No dialog displayed."
 fi
