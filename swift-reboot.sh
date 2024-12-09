@@ -19,7 +19,6 @@
         --height 200 \
         --width 600 \
         --button1text "OK" \
-        --button1action "quit" \
         --button2text "Reboot Now" \
 #else
 #    echo "Uptime is not more than 14 days. No dialog displayed."
