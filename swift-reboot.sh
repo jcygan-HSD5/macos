@@ -1,16 +1,16 @@
 #!/bin/bash
 export CORESVG_VERBOSE=1
 # Get the current uptime in days
-#days=$(uptime | awk -F'( |,)' '{for(i=1;i<=NF;i++){if($i~/day/) {print $(i-1)}}}')
+days=$(uptime | awk -F'( |,)' '{for(i=1;i<=NF;i++){if($i~/day/) {print $(i-1)}}}')
 
-#if [ -z "$days" ]; then
-#    days=0
-#fi
+if [ -z "$days" ]; then
+    days=0
+fi
 
-#echo "Current uptime in days: $days"
+echo "Current uptime in days: $days"
 
-# Check if uptime is greater than 14 days
-#if [ "$days" -gt 0 ]; then
+ Check if uptime is greater than 14 days
+if [ "$days" -gt 14 ]; then
     echo "Uptime is more than 14 days. Triggering reboot dialog..."
     /usr/local/bin/dialog \
         --title "Recommended Reboot" \
@@ -20,9 +20,9 @@ export CORESVG_VERBOSE=1
         --width 600 \
         --button1text "OK" \
         --button2text "Reboot Now" \
-#else
-#    echo "Uptime is not more than 14 days. No dialog displayed."
-#fi
+else
+    echo "Uptime is not more than 14 days. No dialog displayed."
+fi
 
 # Capture the exit code of dialog
 dialog_exit_code=$?
