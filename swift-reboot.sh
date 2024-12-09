@@ -1,5 +1,5 @@
 #!/bin/bash
-
+export CORESVG_VERBOSE=1
 # Get the current uptime in days
 #days=$(uptime | awk -F'( |,)' '{for(i=1;i<=NF;i++){if($i~/day/) {print $(i-1)}}}')
 
