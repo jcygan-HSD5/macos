@@ -9,19 +9,19 @@ fi
 
 echo "Current uptime in days: $days"
 
- Check if uptime is greater than 14 days
-if [ "$days" -gt 1 ]; then
-    echo "Uptime is more than 14 days. Triggering reboot dialog..."
+ Check if uptime is greater than 30 days
+if [ "$days" -gt 30 ]; then
+    echo "Uptime is more than 30 days. Triggering reboot dialog..."
     /usr/local/bin/dialog \
         --title "Recommended Reboot" \
-        --message "Your device has been running for over 14 days without a reboot. Regular reboots help maintain optimal performance and stability.\n\nPlease save your work. You may reboot now or at your earliest convenience." \
+        --message "Your device has been running for over 30 days without a reboot. Regular reboots help maintain optimal performance and stability.\n\nPlease save your work. You may reboot now or at your earliest convenience." \
         --icon caution \
         --height 200 \
         --width 600 \
         --button1text "OK" \
         --button2text "Reboot Now" \
 else
-    echo "Uptime is not more than 14 days. No dialog displayed."
+    echo "Uptime is not more than 30 days. No dialog displayed."
 fi
 
 # Capture the exit code of dialog
