@@ -10,7 +10,7 @@ fi
 echo "Current uptime in days: $days"
 
  Check if uptime is greater than 14 days
-if [ "$days" -gt 14 ]; then
+if [ "$days" -gt 1 ]; then
     echo "Uptime is more than 14 days. Triggering reboot dialog..."
     /usr/local/bin/dialog \
         --title "Recommended Reboot" \
