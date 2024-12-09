@@ -21,7 +21,19 @@
         --button1text "OK" \
         --button1action "quit" \
         --button2text "Reboot Now" \
-        --button2action "/usr/bin/sudo reboot now"
 #else
 #    echo "Uptime is not more than 14 days. No dialog displayed."
 #fi
+
+# Capture the exit code of dialog
+dialog_exit_code=$?
+
+echo "Dialog exited with code: $dialog_exit_code"
+
+# If the user clicked "Reboot Now" (button2), the exit code should be 2.
+if [ $dialog_exit_code -eq 2 ]; then
+    echo "User chose to reboot now. Executing reboot command..."
+    sudo reboot now
+else
+    echo "User did not choose to reboot."
+fi
