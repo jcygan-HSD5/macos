@@ -21,7 +21,7 @@
         --button1text "OK" \
         --button1action "quit" \
         --button2text "Reboot Now" \
-        --button2action "run_command:/usr/bin/touch $HOME/dialog_command_ran"
+        --button2action "/usr/bin/sudo reboot now"
 #else
 #    echo "Uptime is not more than 14 days. No dialog displayed."
 #fi
