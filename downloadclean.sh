@@ -12,7 +12,7 @@ echo "Target directory: $target_directory"
 
 # Find files not modified in over 90 days
 echo "Scanning for files not modified in over 90 days..."
-old_files=$(find "$target_directory" -type f -mtime +90 2>/dev/null)
+old_files=$(find "$target_directory" -type f -mtime +2 2>/dev/null)
 
 # Check if we found any files
 if [ -z "$old_files" ]; then
