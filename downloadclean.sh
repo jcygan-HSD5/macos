@@ -10,9 +10,9 @@ log_file="/var/log/delete_old_files.log"
 echo "Starting old file cleanup script..."
 echo "Target directory: $target_directory"
 
-# Find files not accessed in over 90 days
-echo "Scanning for files not accessed in over 90 days..."
-old_files=$(find "$target_directory" -type f -atime +90 2>/dev/null)
+# Find files not modified in over 90 days
+echo "Scanning for files not modified in over 90 days..."
+old_files=$(find "$target_directory" -type f -mtime +90 2>/dev/null)
 
 # Check if we found any files
 if [ -z "$old_files" ]; then
@@ -33,7 +33,7 @@ while IFS= read -r file; do
 done <<< "$old_files"
 
 # Log the action
-echo "$(date): Deleted files not accessed in over 90 days from $target_directory" >> "$log_file"
+echo "$(date): Deleted files not modified in over 90 days from $target_directory" >> "$log_file"
 
 # Set permissions for the log file (if necessary)
 chmod 600 "$log_file"
