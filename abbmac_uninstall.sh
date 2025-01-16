@@ -6,6 +6,14 @@ LOGFILE="/var/log/abb_uninstall.log"
 # Send all stdout and stderr to both the terminal and the log file
 exec > >(tee -a "$LOGFILE") 2>&1
 
+ABBAppPath="/Applications/Synology Active Backup for Business Agent.app"
+
+# --- NEW: Quick check to see if the app is installed ---
+if [ ! -d "${ABBAppPath}" ]; then
+    echo "Synology ABB app not found at \"${ABBAppPath}\". Skipping..."
+    exit 0
+fi
+
 echo "---------- Starting ABB Uninstall at $(date) ----------"
 
 ServicePkgId="com.synology.activebackup-agent.pkg"
