@@ -1,5 +1,13 @@
 #!/bin/sh
 
+# Define the path to your log file
+LOGFILE="/var/log/abb_uninstall.log"
+
+# Send all stdout and stderr to both the terminal and the log file
+exec > >(tee -a "$LOGFILE") 2>&1
+
+echo "---------- Starting ABB Uninstall at $(date) ----------"
+
 ServicePkgId="com.synology.activebackup-agent.pkg"
 ServiceTool="/Applications/Synology Active Backup for Business Agent.app/Contents/MacOS/mac-tool"
 RecoveryKextV2InstalledPath="/Applications/Synology Active Backup for Business Recovery.app/Contents/ActiveBackupKextV2.kext"
