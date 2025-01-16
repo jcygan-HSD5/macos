@@ -11,8 +11,8 @@ echo "Starting old file cleanup script..."
 echo "Target directory: $target_directory"
 
 # Find files not modified in over 90 days
-echo "Scanning for files not modified in over 90 days..."
-old_files=$(sudo -u laptop find "$target_directory" -type f -mtime +90)
+echo "Scanning for files not modified in over 120 days..."
+old_files=$(sudo -u laptop find "$target_directory" -type f -mtime +120)
 
 # Check if we found any files
 if [ -z "$old_files" ]; then
